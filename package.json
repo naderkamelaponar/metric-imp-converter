@@ -5,8 +5,8 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "nodemon index.js",
-		"test": "mocha ./tests/ --ui tdd","build": "pm2 start index.js"
-
+		"test": "mocha ./tests/ --ui tdd",
+		"live": "pm2 start index.js","stop":"pm2 stop server.js","deploy":"netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=./ "
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",
@@ -15,7 +15,8 @@
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
-		"mocha": "^8.1.3"
+		"mocha": "^8.1.3",
+		"pm2": "^5.2.0"
 	},
 	"repository": {
 		"type": "git",
@@ -29,6 +30,6 @@
 	"license": "MIT",
 	"devDependencies": {
 		"morgan": "^1.10.0",
-		"nodemon": "^2.0.16"
+		"nodemon": "^2.0.16","netlify-cli": "^10.0.0"
 	}
 }
