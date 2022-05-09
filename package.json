@@ -4,7 +4,7 @@
 	"description": "Metric / Imperial Unit Converter",
 	"main": "server.js",
 	"scripts": {
-		"start": "nodemon server.js",
+		"start": "nodemon index.js",
 		"test": "mocha ./tests/ --ui tdd"
 	},
 	"dependencies": {
