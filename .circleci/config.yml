@@ -13,12 +13,12 @@ jobs:
       - run: 
           name: Install Dependencies
           command: npm install
-      - run: 
-          name: Server build
-          command: npm run build
       - run:
           name: Deploy at Netlify 
           command: npm run deploy
+       - run: 
+          name: Server Start
+          command: npm run server:start
       
 workflows:
   build_deploy:

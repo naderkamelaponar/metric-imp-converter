@@ -7,8 +7,8 @@
 		"start": "nodemon index.js",
 		"test": "mocha ./tests/ --ui tdd",
 		"prod": "node server.js",
-		"stop": "pm2 stop server.js", "clean": "rm -rf www/ || true",
-		"build": "npm run clean  &&  cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+		"server:stop": "pm2 stop server.js", 
+		"server:live": "pm2 start server.js",
 		"deploy": "netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=./ ","deploy:here":"pm2 deploy production server.js"
 	},
 	"dependencies": {
