@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Deploy at Netlify 
           command: npm run deploy
-       - run: 
+      - run: 
           name: Server Start
           command: npm run server:start
       
