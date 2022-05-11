@@ -8,7 +8,7 @@
 		"test": "mocha ./tests/ --ui tdd",
 		"prod": "node server.js",
 		"server:stop": "pm2 stop server.js", 
-		"server:live": "pm2 start server.js",
+		"server:start": "pm2 start server.js",
 		"deploy": "netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=./ ","deploy:here":"pm2 deploy production server.js"
 	},
 	"dependencies": {
