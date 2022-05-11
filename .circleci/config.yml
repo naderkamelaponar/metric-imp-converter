@@ -16,9 +16,9 @@ jobs:
       - run:
           name: Deploy at Netlify 
           command: npm run deploy
-      - run: 
-          name: Server Live
-          command: npm run live
+      #- run: 
+       #   name: Server Live
+        #  command: npm run live
 workflows:
   build_deploy:
     jobs: 
