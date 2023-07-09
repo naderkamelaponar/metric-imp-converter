@@ -5,12 +5,8 @@ jobs:
   deploy: 
     docker:
       - image: cimg/node:16.10
-      - image: cimg/base:2021.09
     steps:
-      # - checkout
-      - run: 
-          name: Install Netlify CLI
-          command: npm install netlify-cli -g
+      - checkout
 
       # Download and cache dependencies
 
