@@ -6,20 +6,32 @@ jobs:
     docker:
       - image: cimg/node:16.10
     steps:
+      steps:
       - checkout
 
       # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package.json checksum
+            # when this file is changed, this key will fail
+            - v1-dependencies-{{ checksum "package.json" }}
+            # Find the most recently generated cache used from any branch
+            - v1-dependencies-
 
       - run: 
           name: Install Dependencies
           command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Deploy at Netlify 
           command: npm run deploy
       - run: 
-          name: Server Start
-          command: npm run server:start
-      
+          name: Server Live
+          command: npm run live
 workflows:
   build_deploy:
     jobs: 
