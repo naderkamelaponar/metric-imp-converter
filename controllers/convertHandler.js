@@ -2,12 +2,11 @@ function ConvertHandler() {
   const units=[["gal","l"],["lbs","kg"],["mi","km"]]
   //const units=["gal","lbs","km"]
   this.getNum = function(input) {
-    let result= input.match(/[0-9][.]+?[0-9]+?[/]+[0-9].*[0-9$]|[0-9]+?[/]+[0-9]*|[0-9][.]+?[0-9]*/g); 
-    result= result? result:input.match(/[0-9]+/g); 
+    let result = /[/]/.test(input) &&/[.]/.test(input)? input.match(/[0-9]+[.]+[0-9]+[/]+[0-9]+[.]+[0-9]*|[0-9]+[/]+[0-9]+[.]+[0-9]*|[0-9]+[.]+[0-9]+[/]+[0-9]*/g) :input.match(/[0-9]+[/]+[0-9]*|[0-9]+[.]+[0-9]*|^[0-9]$/g)
     result=result?result[0]:1;
     result=/[.|/]$/g.test(input)?null:result
     result=result && /[/]/.test(result) && result.match(/[/]/g).length ===1?eval(result):result
-    result= (/[/]/.test(result)  )? null:parseFloat(result)
+    result= (/[/]/.test(result))? null:parseFloat(result)
     return result;
   };
   
@@ -15,7 +14,7 @@ function ConvertHandler() {
     let result= input.match(/[a-z]+/ig);
     if (result){
       let f=units.filter(a=>{return a.includes(result[0].toLowerCase())})
-      if (f.length>0)return result[0]
+      if (f.length>0)return result[0].toLowerCase()
     }
     return null;
   };
