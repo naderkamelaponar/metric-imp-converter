@@ -43,7 +43,7 @@ function ConvertHandler() {
     "mi":"miles",
     "km":"kilometers",
     "kg":"kilograms",
-    "lbs":"lbs"
+    "lbs":"pounds"
 
   }
   this.spellOutUnit = function(unit) {
@@ -57,7 +57,6 @@ function ConvertHandler() {
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
     let result;
-    console.log(initNum)
     switch(initUnit){
       case "l":
         result=initNum/galToL
@@ -83,8 +82,8 @@ function ConvertHandler() {
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     const iUnitF=this.spellOutUnit(initUnit)
     const oUnitF=this.spellOutUnit(returnUnit)
+    console.log(typeof returnNum)
     let result={initNum,initUnit:initUnit.length==1?initUnit.toUpperCase():initUnit,returnNum,returnUnit:returnUnit.length==1?returnUnit.toUpperCase():returnUnit, string:`${initNum} ${iUnitF} converts to ${returnNum} ${oUnitF}`};
-    console.log(result)
     return result;
   };
   
