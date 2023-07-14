@@ -1,6 +1,5 @@
 function ConvertHandler() {
   const units=[["gal","l"],["lbs","kg"],["mi","km"]]
-  //const units=["gal","lbs","km"]
   this.getNum = function(input) {
     let result = /[/]/.test(input) &&/[.]/.test(input)? input.match(/[0-9]+[.]+[0-9]+[/]+[0-9]+[.]+[0-9]*|[0-9]+[/]+[0-9]+[.]+[0-9]*|[0-9]+[.]+[0-9]+[/]+[0-9]*/g) :input.match(/[0-9]+[/]+[0-9]*|[0-9]+[.]+[0-9]*|^[0-9]$/g)
     result=result?result[0]:1;
@@ -78,7 +77,7 @@ function ConvertHandler() {
       case "kg":
         result=initNum/lbsToKg
     }
-    return parseInt(result)==result? result:result.toFixed(5);
+    return parseInt(result)==result? parseInt(result):parseFloat(result.toFixed(5));
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
