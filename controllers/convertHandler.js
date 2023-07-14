@@ -49,7 +49,8 @@ function ConvertHandler() {
 
   }
   this.spellOutUnit = function(unit) {
-    let result =fullUnit[unit];
+    let result =fullUnit[unit.toLowerCase()];
+    console.log(result,unit)
     return result?result:null;
   };
   
