@@ -48,7 +48,6 @@ function ConvertHandler() {
   }
   this.spellOutUnit = function(unit) {
     let result =fullUnit[unit.toLowerCase()];
-    console.log(result,unit)
     return result?result:null;
   };
   
@@ -76,14 +75,14 @@ function ConvertHandler() {
       case "kg":
         result=initNum/lbsToKg
     }
-    return parseInt(result)==result? parseInt(result):parseFloat(result.toFixed(5));
+    return result.toFixed(5)
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     const iUnitF=this.spellOutUnit(initUnit)
     const oUnitF=this.spellOutUnit(returnUnit)
     console.log(typeof returnNum)
-    let result={initNum,initUnit:initUnit.length==1?initUnit.toUpperCase():initUnit,returnNum,returnUnit:returnUnit.length==1?returnUnit.toUpperCase():returnUnit, string:`${initNum} ${iUnitF} converts to ${returnNum} ${oUnitF}`};
+    let result={initNum,initUnit:initUnit.length==1?initUnit.toUpperCase():initUnit,returnNum:returnNum==parseInt(returnNum)?parseInt(returnNum):parseFloat(returnNum),returnUnit:returnUnit.length==1?returnUnit.toUpperCase():returnUnit, string:`${initNum} ${iUnitF} converts to ${returnNum} ${oUnitF}`};
     return result;
   };
   
