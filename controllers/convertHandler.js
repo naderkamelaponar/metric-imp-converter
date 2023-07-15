@@ -39,7 +39,7 @@ function ConvertHandler() {
   };
   const fullUnit={
     "l":"liters",
-    "gal":"galons",
+    "gal":"gallons",
     "mi":"miles",
     "km":"kilometers",
     "kg":"kilograms",
