@@ -1,11 +1,21 @@
 function ConvertHandler() {
   const units=[["gal","l"],["lbs","kg"],["mi","km"]]
   this.getNum = function(input) {
-    let result = /[/]/.test(input) &&/[.]/.test(input)? input.match(/[0-9]+[.]+[0-9]+[/]+[0-9]+[.]+[0-9]*|[0-9]+[/]+[0-9]+[.]+[0-9]*|[0-9]+[.]+[0-9]+[/]+[0-9]*/g) :input.match(/[0-9]+[/]+[0-9]*|[0-9]+[.]+[0-9]*|^[0-9]$/g)
-    result=result?result[0]:1;
-    result=/[.|/]$/g.test(input)?null:result
-    result=result && /[/]/.test(result) && result.match(/[/]/g).length ===1?eval(result):result
-    result= (/[/]/.test(result))? null:parseFloat(result)
+    if (!/\d+/g.test(input))return 1
+    const pats=[/[0-9]+[/]+[0-9]*/g,
+    /\d+[.]\d*/g,
+    /\d+[.]+\d+[/]\d+[.]+\d+/g,
+    /[0-9]+[/][0-9]+[.]?\d+/g,
+    /\d+/g,
+    /\d+[.]+\d+[/]+\d+/g]
+    let result='';
+    pats.map((a)=>{
+      const f=input.match(a)
+      if (f && result.length<f[0].length && f[0].match(/[0-9]+/g).length==input.match(/[0-9]+/g).length){
+        result=f[0]
+      }
+    })
+    result=/\//.test(result)?eval(result):result
     return result;
   };
   

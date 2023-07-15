@@ -8,6 +8,7 @@ module.exports = function (app) {
   let convertHandler = new ConvertHandler();
   app.get('/api/convert?',(req,res)=>{
     const {input} =req.query
+    console.log(input)
     const iNo= convertHandler.getNum(input);
     const iUnit=convertHandler.getUnit(input);
     if (!iNo && !iUnit){return res.send("invalid number and unit")}
