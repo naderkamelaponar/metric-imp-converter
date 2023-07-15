@@ -9,14 +9,17 @@ function ConvertHandler() {
     /\d+/g,
     /\d+[.]+\d+[/]+\d+/g]
     let result='';
+    
     pats.map((a)=>{
       const f=input.match(a)
       if (f && result.length<f[0].length && f[0].match(/[0-9]+/g).length==input.match(/[0-9]+/g).length){
         result=f[0]
+        console.log(f,a)
       }
     })
-    result=/\//.test(result)?eval(result):result
-    return result;
+    console.log(result)
+    result=result.includes("/")&&!result.endsWith("/")?eval(result):result
+    return result.includes("/")?null:result;
   };
   
   this.getUnit = function(input) {
