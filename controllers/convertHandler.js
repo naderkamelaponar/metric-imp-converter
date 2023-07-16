@@ -19,7 +19,7 @@ function ConvertHandler() {
     })
     console.log(result)
     result=result.includes("/")&&!result.endsWith("/")?eval(result):result
-    return result.includes("/")?null:result;
+    return result ;
     
   };
   
