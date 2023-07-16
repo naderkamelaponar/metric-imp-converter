@@ -18,7 +18,7 @@ function ConvertHandler() {
       }
     })
     result=result.includes("/")&&!result.endsWith("/")?eval(result):result
-    return result.includes("/")?null:result ; 
+    return /\//.test(result)?null:result ; 
     
   };
   
