@@ -19,8 +19,8 @@ function ConvertHandler() {
     })
     console.log(result)
     result=result.includes("/")&&!result.endsWith("/")?eval(result):result
-    result= result.includes("/")?null:result;
-    return result.includes(".")&& result.endsWith(".")?null:result;
+    return result.includes("/")?null:result;
+    
   };
   
   this.getUnit = function(input) {
