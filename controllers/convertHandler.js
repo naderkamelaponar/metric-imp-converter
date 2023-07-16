@@ -2,14 +2,16 @@ function ConvertHandler() {
   const units=[["gal","l"],["lbs","kg"],["mi","km"]]
   this.getNum = function(input) {
     if (!/\d+/g.test(input))return 1
+    let result='';
+    if(/[/]/.test(input)&& input.split("/").length!==2){
+      return null;
+    }
     const pats=[/[0-9]+[/]+[0-9]*/g,
     /\d+[.]\d*/g,
     /\d+[.]+\d+[/]\d+[.]+\d+/g,
     /[0-9]+[/][0-9]+[.]?\d+/g,
     /\d+/g,
-    /\d+[.]+\d+[/]+\d+/g]
-    let result='';
-    
+    /\d+[.]+\d+[/]\d+/g]
     pats.map((a)=>{
       const f=input.match(a)
       if (f && result.length<f[0].length && f[0].match(/[0-9]+/g).length==input.match(/[0-9]+/g).length){
@@ -17,6 +19,7 @@ function ConvertHandler() {
         console.log(f,a)
       }
     })
+    console.log(result);
     result=result.includes("/")&&!result.endsWith("/")?eval(result):result
     return /\//.test(result)?null:result ; 
     
