@@ -18,7 +18,6 @@ function ConvertHandler() {
         result=f[0]
       }
     })
-    console.log(result);
     result=result.includes("/")&&!result.endsWith("/")?eval(result):result
     return /\//.test(result)?null:result ; 
     
@@ -95,8 +94,7 @@ function ConvertHandler() {
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     const iUnitF=this.spellOutUnit(initUnit)
-    const oUnitF=this.spellOutUnit(returnUnit)
-    console.log(typeof returnNum)
+    const oUnitF=this.spellOutUnit(returnUnit);
     let result={initNum,initUnit:initUnit.length==1?initUnit.toUpperCase():initUnit,returnNum:returnNum==parseInt(returnNum)?parseInt(returnNum):parseFloat(returnNum),returnUnit:returnUnit.length==1?returnUnit.toUpperCase():returnUnit, string:`${initNum} ${iUnitF} converts to ${returnNum} ${oUnitF}`};
     return result;
   };

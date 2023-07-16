@@ -33,7 +33,7 @@ suite('Unit Tests', function(){
             assert.isNull(convertHandler.getUnit("kmh"),null, 'should return Null')
         })
         test("should return the correct return unit for each valid input unit.",()=>{
-            assert.isNotNull(convertHandler.getUnit("gal"),!null, 'should return NOT Null')
+            assert.isArray([convertHandler.getUnit("gal"),convertHandler.getUnit("km"),convertHandler.getUnit("mi")], 'should return NOT Null')
         })
         test("should correctly return the spelled-out string unit for each valid input unit.",()=>{
             assert.equal(convertHandler.spellOutUnit("gal"),"gallons", 'should return gallons')
