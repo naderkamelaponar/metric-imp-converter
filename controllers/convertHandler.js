@@ -17,9 +17,8 @@ function ConvertHandler() {
         console.log(f,a)
       }
     })
-    console.log(result)
     result=result.includes("/")&&!result.endsWith("/")?eval(result):result
-    return result ; 
+    return result.includes("/")?null:result ; 
     
   };
   
