@@ -16,7 +16,6 @@ function ConvertHandler() {
       const f=input.match(a)
       if (f && result.length<f[0].length && f[0].match(/[0-9]+/g).length==input.match(/[0-9]+/g).length){
         result=f[0]
-        console.log(f,a)
       }
     })
     console.log(result);
